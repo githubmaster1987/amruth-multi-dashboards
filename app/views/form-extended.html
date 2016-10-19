@@ -1,0 +1,121 @@
+<h3>Subscription
+   <small>Configurable Subscription Plans</small>
+</h3>
+<!-- START panel-->
+<div class="panel panel-default">
+   <div class="panel-heading">Choose Your plan, Your Way</div>
+   <div class="panel-body">
+      <form method="get" ng-controller="FormDemoCtrl as form" class="form-horizontal">
+         <fieldset>
+           <!--  <legend>New Components</legend> -->
+            <div class="form-group">
+               <label class="col-sm-2 control-label">
+                  <!-- <br/>
+                  <small>Classic, range and vertical</small>
+                  <br/> -->
+               </label>
+               <div class="col-sm-10">
+                  <div class="row">
+                     <div class="col-xs-6">
+                        <br/>
+						<span class="label label-purple pull-right">Projects: {{form.slider1}}</span>
+                        <br/>
+                        <slider ng-model="form.slider1" min="5" max="30" step="1" orientation="horizontal" class="bs-slider slider-horizontal" tooltip="always" >  </slider>
+						 
+                        <br/>
+						<br/>
+						<a class="mr-sm label label-success pull-right" href="">Devices: {{form.slider2}} </a>
+                        <br/>
+                        <slider ng-model="form.slider2" min="5" max="20" step="1" orientation="horizontal" class="bs-slider slider-horizontal" tooltip="always" ></slider>
+						<br/>
+						<br/>
+						<div class="label label-info pull-right">Users: {{form.slider3}}</div>
+                        <br/>
+                        <slider ng-model="form.slider3" min="5" max="20" step="1" orientation="horizontal" class="bs-slider slider-horizontal" tooltip="always" ></slider>
+						<br/>
+						
+						<br/>
+						<span class="label label-warning pull-right">Duration: {{form.slider4}}</span>
+                        <br/>
+                        <slider ng-model="form.slider4" min="5" max="20" step="1" orientation="horizontal" class="bs-slider slider-horizontal" tooltip="always" ></slider>
+						
+                     </div>
+                     <div class="col-xs-6">
+					    <br/>
+                        <br/>
+                        <p>Projects: {{form.slider1}}</p>
+						<br/>
+                        <br/>
+                        <p>Devices: {{form.slider2}}</p>
+						<br/>
+                        
+                        <p>Users: {{form.slider3}}</p>
+						<br/>
+                        
+                        <p>Duration: {{form.slider4}}</p>
+                        
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </fieldset>
+		 
+       <!--   <fieldset>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Switch Small</label>
+               <div class="col-sm-10">
+                  <label class="switch switch-sm">
+                     <input type="checkbox" checked="checked" />
+                     <span></span>
+                  </label>
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Switch</label>
+               <div class="col-sm-10">
+                  <label class="switch">
+                     <input type="checkbox" checked="checked" />
+                     <span></span>
+                  </label>
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Switch Large</label>
+               <div class="col-sm-10">
+                  <label class="switch switch-lg">
+                     <input type="checkbox" checked="checked" />
+                     <span></span>
+                  </label>
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">Switch Radio</label>
+               <div class="col-sm-10">
+                  <label class="switch switch-lg">
+                     <input type="radio" checked="checked" name="radioSwitch" />
+                     <span></span>
+                  </label>
+                  <label class="switch switch-lg">
+                     <input type="radio" name="radioSwitch" />
+                     <span></span>
+                  </label>
+               </div>
+            </div>
+         </fieldset>
+		  -->
+		 
+        
+		
+               
+         <fieldset>
+            <div class="form-group">
+               <div class="col-sm-4 col-sm-offset-2">
+                  <button type="submit" class="btn btn-default">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+               </div>
+            </div>
+         </fieldset>
+      </form>
+   </div>
+</div>
+<!-- END panel-->

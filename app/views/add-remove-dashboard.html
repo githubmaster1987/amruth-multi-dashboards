@@ -1,0 +1,56 @@
+<h3>
+  <!-- START Language list-->
+  <div class="pull-right">
+    <div uib-dropdown="" is-open="language.listIsOpen" class="btn-group">
+      <button type="button" uib-dropdown-toggle="" class="btn btn-default">{{language.selected}}
+      <span class="caret"></span>
+      </button>
+      <ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
+        <li ng-repeat="(localeId, langName) in language.available"><a ng-click="language.set(localeId, $event)" href="#">{{langName}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- END Language list-->
+  Add/Remove Dashboard
+  <small>{{ 'dashboard.WELCOME' | translate:{ appName: app.name } }} !</small>
+</h3>
+<div class="row" ng-controller="AddRemoveDashboardController as ardash">
+  <!-- START dashboard main content-->
+  <div class="col-lg-9">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="form-horizontal">
+          <form editable-form name="arform" onaftersave="">
+            <table class="table table-bordered table-hover bg-white">
+              <tr style="font-weight: bold">
+                <td style="width:60%">ID</td>
+                <td style="width:40%">
+                  <span ng-show="tableform.$visible">Action</span>
+                </td>
+              </tr>
+              <tr ng-repeat="dashboard in ardash.current_dashboards">
+                <td>
+                  <span>{{ dashboard || &apos;empty&apos; }}</span>
+                </td>
+                <td>
+                  <button type="button" ng-show="arform.$visible" ng-click="ardash.delete(dashboard)" class="btn btn-danger pull-right">
+                  <em class="fa fa-trash"></em>
+                  </button>
+                </td>
+              </tr>
+            </table>
+
+            <button type="button" class="btn btn-default" ng-click="arform.$show()" ng-show="!arform.$visible">Edit</button>
+            <span ng-show="arform.$visible">
+              <button type="submit" class="btn btn-primary" ng-disabled="arform.$waiting" ng-click="ardash.save()">Save</button>
+              <button type="button" class="btn btn-default" ng-disabled="arform.$waiting" ng-click="arform.$cancel();ardash.cancel();">Cancel</button>
+              <button type="button" ng-click="ardash.add()" class="btn btn-success pull-right">add Dashboard</button>
+            </span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END dashboard main content-->
+</div>

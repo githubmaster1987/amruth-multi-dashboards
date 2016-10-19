@@ -1,0 +1,101 @@
+<h3>Projects<small>All Active Projects</small></h3>
+<div ng-controller="FormxEditableController as form" class="row">
+  <div ng-repeat="(key, project) in form.user_projects">
+    <div class="panel panel-default">
+      <div class="panel-heading">{{ project.project_name || &apos;empty&apos; }}</div>
+      <div class="panel-body">
+        <div class="form-horizontal">
+          <form editable-form name="editableForm1" onaftersave="form.saveUser()">
+            <div ng-repeat="key in project.keys track by $index">
+              <div ng-if="key != 'devices'" class="form-group m0">
+                <label class="col-sm-4 control-label">{{key}}</label>
+                <div class="col-sm-8" ng-switch="key">
+                  <p ng-switch-when="email" class="form-control-static"><a href="#" editable-email="project.fields[$index]">{{ project.fields[$index] || &apos;empty&apos; }}</a></p>
+                  <p ng-switch-when="tel" class="form-control-static"><a href="#" editable-tel="project.fields[$index]">{{ project.fields[$index] || &apos;empty&apos; }}</a></p>
+                  <p ng-switch-when="site_id" class="form-control-static"><a href="#" editable-number="project.fields[$index]" e-min="18">{{ project.fields[$index] || &apos;empty&apos; }}</a></p>
+                  <p ng-switch-when="url" class="form-control-static"><a href="#" editable-url="project.fields[$index]">{{ project.fields[$index] || &apos;empty&apos; }}</a></p>
+                  <p ng-switch-when="refresh_rate" class="form-control-static"><a href="#" editable-range="project.fields[$index]" e-max="20" e-step="1">{{ project.fields[$index] || &apos;empty&apos; }}</a></p>
+                  <p ng-switch-when="range" class="form-control-static"><a href="#" editable-range="project.fields[$index]" e-max="20" e-step="1">{{ project.fields[$index] || &apos;empty&apos; }}</a></p>
+                  <!-- <p ng-switch-default class="form-control-static"><a href="#" editable-text="project.fields[$index]">{{ project.fields[$index] || &apos;empty&apos; }}</a></p> -->
+                </div>
+              </div>
+              <div ng-if="key == 'devices'">
+                <table class="table table-bordered table-hover bg-white">
+                  <tr style="font-weight: bold">
+                    <td style="width:40%">Device Name</td>
+                    <td style="width:40%">ID</td>
+                    <td style="width:20%">
+                      <span ng-show="tableform.$visible">Action</span>
+                    </td>
+                  </tr>
+                  <tr ng-repeat="device in project.fields[$index]">
+                    <td>
+                      <span editable-text="device.name" e-form="editableForm1">{{ device.name || &apos;empty&apos; }}</span>
+                    </td>
+                    <td>
+                      <span editable-text="device.id" e-form="editableForm1">{{ device.id || &apos;empty&apos; }}</span>
+                    </td>
+                    <td>
+                      <button type="button" ng-show="editableForm1.$visible" ng-click="form.delete1(device.id)" class="btn btn-danger pull-right">
+                      <em class="fa fa-trash"></em>
+                      </button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <button type="button" class="btn btn-default" ng-click="editableForm1.$show()" ng-show="!editableForm1.$visible">Edit</button>
+            <span ng-show="editableForm1.$visible">
+              <button type="submit" class="btn btn-primary" ng-disabled="editableForm1.$waiting">Save</button>
+              <button type="button" class="btn btn-default" ng-disabled="editableForm1.$waiting" ng-click="editableForm1.$cancel()">Cancel</button>
+              <button type="button" ng-click="form.asdasd()" class="btn btn-success pull-right">add Device</button>
+            </span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">Add / Remove project(s)</div>
+    <div class="panel-body">
+      <div class="form-horizontal">
+        <form editable-form name="add_remove" onaftersave="form.update_projects()">
+          <div class="form-group m0">
+            <table class="table table-bordered table-hover bg-white">
+              <tr style="font-weight: bold">
+                <td style="width:40%">No</td>
+                <td style="width:40%">Project title</td>
+                <td style="width:20%">
+                  <span ng-show="tableform.$visible">Action</span>
+                </td>
+              </tr>
+              <tr ng-repeat="(key, project) in form.projects">
+                <td>
+                  <span>{{ key + 1 || &apos;empty&apos; }}</span>
+                </td>
+                <td>
+                  <span>{{ project.project_name || &apos;empty&apos; }}</span>
+                </td>
+                <td>
+                  <button ng-if="form.selected[key]" type="button" ng-show="add_remove.$visible" ng-click="form.delete_project(key)" class="btn btn-danger pull-right">
+                  <em class="fa fa-trash"></em>
+                  </button>
+                  <button ng-if="!form.selected[key]" type="button" ng-show="add_remove.$visible" ng-click="form.add_project(key)" class="btn btn-danger pull-right">
+                  <em class="fa fa-check-square-o"></em>
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="panel-footer">
+            <button type="button" class="btn btn-default" ng-click="add_remove.$show()" ng-show="!add_remove.$visible">Edit</button>
+            <span ng-show="add_remove.$visible">
+              <button type="submit" class="btn btn-primary" ng-disabled="add_remove.$waiting">Save</button>
+              <button type="button" class="btn btn-default" ng-disabled="add_remove.$waiting" ng-click="add_remove.$cancel()">Cancel</button>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

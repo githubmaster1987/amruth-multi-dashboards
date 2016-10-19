@@ -1,0 +1,78 @@
+[
+  {
+    "text": "Main Navigation",
+    "heading": "true",
+    "translate": "sidebar.heading.HEADER"
+  },
+  {
+    "text": "Dashboard",
+    "sref": "#",
+    "icon": "icon-speedometer",
+    "alert": "1" ,
+    "label": "label label-info",
+    "submenu": [
+      {"text": "Add/remove Dashboard",       "sref": "app.add_remove_dashboard"}
+    ],
+    "translate": "sidebar.nav.DASHBOARD"
+  },
+    
+  {
+    "text": "Components",
+    "heading": "true",
+    "translate": "sidebar.heading.COMPONENTS"
+  },
+  {
+    "text": "Projects",
+    "sref": "app.form-xeditable",
+    "icon": "icon-energy",
+    "label": "label label-success"
+  },
+  
+  {
+    "text": "Locations",
+    "sref": "app.maps-vector",
+    "icon": "icon-location-pin",
+    "label": "label label-success"
+  },
+  {
+    "text": "Settings",
+    "sref": "app.settings",
+    "icon": "icon-settings",
+    "label": "label label-success"
+  },
+  
+  {
+    "text": "User Management",
+    "sref": "app.table-xeditable",
+    "icon": "icon-people",
+    "label": "label label-success"
+  },
+  
+  {
+    "text": "Plans",
+    "sref": "app.form-extended",
+    "icon": "icon-bulb",
+    "label": "label label-success"
+  },
+  
+   
+  {
+    "text": "FAQ",
+    "sref": "app.faq",
+    "icon": "icon-question",
+    "label": "label label-success"
+  },
+  
+  {
+    "text": "Tour",
+    "sref": "app.tour",
+    "icon": "icon-compass",
+    "label": "label label-success"
+  },
+  {
+    "text": "Help Center",
+    "sref": "app.help-center",
+    "icon": "icon-support",
+    "label": "label label-success"
+  }
+]
