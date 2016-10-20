@@ -1,6 +1,6 @@
 <h3>Projects<small>All Active Projects</small></h3>
 <div ng-controller="FormxEditableController as form" class="row">
-  <div ng-repeat="(key, project) in form.user_projects">
+  <div ng-repeat="(key, project) in form.user_projects" class="col-md-6">
     <div class="panel panel-default">
       <div class="panel-heading">{{ project.project_name || &apos;empty&apos; }}</div>
       <div class="panel-body">
@@ -55,46 +55,48 @@
       </div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">Add / Remove project(s)</div>
-    <div class="panel-body">
-      <div class="form-horizontal">
-        <form editable-form name="add_remove" onaftersave="form.update_projects()">
-          <div class="form-group m0">
-            <table class="table table-bordered table-hover bg-white">
-              <tr style="font-weight: bold">
-                <td style="width:40%">No</td>
-                <td style="width:40%">Project title</td>
-                <td style="width:20%">
-                  <span ng-show="tableform.$visible">Action</span>
-                </td>
-              </tr>
-              <tr ng-repeat="(key, project) in form.projects">
-                <td>
-                  <span>{{ key + 1 || &apos;empty&apos; }}</span>
-                </td>
-                <td>
-                  <span>{{ project.project_name || &apos;empty&apos; }}</span>
-                </td>
-                <td>
-                  <button ng-if="form.selected[key]" type="button" ng-show="add_remove.$visible" ng-click="form.delete_project(key)" class="btn btn-danger pull-right">
-                  <em class="fa fa-trash"></em>
-                  </button>
-                  <button ng-if="!form.selected[key]" type="button" ng-show="add_remove.$visible" ng-click="form.add_project(key)" class="btn btn-danger pull-right">
-                  <em class="fa fa-check-square-o"></em>
-                  </button>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div class="panel-footer">
-            <button type="button" class="btn btn-default" ng-click="add_remove.$show()" ng-show="!add_remove.$visible">Edit</button>
-            <span ng-show="add_remove.$visible">
-              <button type="submit" class="btn btn-primary" ng-disabled="add_remove.$waiting">Save</button>
-              <button type="button" class="btn btn-default" ng-disabled="add_remove.$waiting" ng-click="add_remove.$cancel()">Cancel</button>
-            </span>
-          </div>
-        </form>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">Add / Remove project(s)</div>
+      <div class="panel-body">
+        <div class="form-horizontal">
+          <form editable-form name="add_remove" onaftersave="form.update_projects()">
+            <div class="form-group m0">
+              <table class="table table-bordered table-hover bg-white">
+                <tr style="font-weight: bold">
+                  <td style="width:40%">No</td>
+                  <td style="width:40%">Project title</td>
+                  <td style="width:20%">
+                    <span ng-show="tableform.$visible">Action</span>
+                  </td>
+                </tr>
+                <tr ng-repeat="(key, project) in form.projects">
+                  <td>
+                    <span>{{ key + 1 || &apos;empty&apos; }}</span>
+                  </td>
+                  <td>
+                    <span>{{ project.project_name || &apos;empty&apos; }}</span>
+                  </td>
+                  <td>
+                    <button ng-if="form.selected[key]" type="button" ng-show="add_remove.$visible" ng-click="form.delete_project(key)" class="btn btn-danger pull-right">
+                    <em class="fa fa-trash"></em>
+                    </button>
+                    <button ng-if="!form.selected[key]" type="button" ng-show="add_remove.$visible" ng-click="form.add_project(key)" class="btn btn-danger pull-right">
+                    <em class="fa fa-check-square-o"></em>
+                    </button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="panel-footer">
+              <button type="button" class="btn btn-default" ng-click="add_remove.$show()" ng-show="!add_remove.$visible">Edit</button>
+              <span ng-show="add_remove.$visible">
+                <button type="submit" class="btn btn-primary" ng-disabled="add_remove.$waiting">Save</button>
+                <button type="button" class="btn btn-default" ng-disabled="add_remove.$waiting" ng-click="add_remove.$cancel()">Cancel</button>
+              </span>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
