@@ -11511,10 +11511,10 @@
     function getUserProjects(email, session_id, limit_cnt) {
 
       console.log(userInfo.sessionId);
-
+//url: DSP_URL + '/api/v2/thingscloud2/_table/testprojects/'
       return $http({
         method: 'GET',
-        url: DSP_URL + '/api/v2/thingscloud2/_table/testprojects/',
+        url: DSP_URL + '/api/v2/thingscloud2/_table/projects/',
         headers: {
           'Content-Type': 'Application/json',
           'X-Dreamfactory-API-Key': DSP_API_KEY,
@@ -11532,9 +11532,10 @@
 
     function UpdateProjects(session_id, dsp_id, project) {
       console.log('Inside the Factory First Line');
+      //url: DSP_URL + '/api/v2/thingscloud2/_table/testprojects/' + dsp_id,
       return $http({
         method: 'PATCH',
-        url: DSP_URL + '/api/v2/thingscloud2/_table/testprojects/' + dsp_id,
+        url: DSP_URL + '/api/v2/thingscloud2/_table/projects/' + dsp_id,
         headers: {
           'Content-Type': 'Application/json',
           'X-Dreamfactory-API-Key': DSP_API_KEY,
@@ -11586,9 +11587,10 @@
     }
 
     function getAllProjects(session_id) {
+      //url: DSP_URL + '/api/v2/thingscloud2/_table/testprojects/',
       return $http({
         method: 'GET',
-        url: DSP_URL + '/api/v2/thingscloud2/_table/testprojects/',
+        url: DSP_URL + '/api/v2/thingscloud2/_table/projects/',
         headers: {
           'Content-Type': 'Application/json',
           'X-Dreamfactory-API-Key': DSP_API_KEY,
